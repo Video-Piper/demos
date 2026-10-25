@@ -1,7 +1,7 @@
 // Create a Video Piper live stream, print how to watch and broadcast to it, wait for the
 // broadcast to end, then print the recording's videoId.
 // Usage: node live.mjs ["Stream title"]
-// Needs Node 18+ (built-in fetch), no dependencies, and a Pro or Scale plan.
+// Needs Node 18+ (built-in fetch), no dependencies, and a Pro, Scale or Enterprise plan.
 // Reads VIDEO_PIPER_API_KEY (and optionally VIDEO_PIPER_API_URL) from the environment
 // or from a .env file next to this script.
 import { readFileSync } from "node:fs";
@@ -99,7 +99,7 @@ async function main() {
 
 main().catch((error) => {
   console.error(error.message);
-  if (error.code === "PLAN_UPGRADE_REQUIRED") console.error("Live streaming needs a Pro or Scale plan: https://videopiper.com/pricing/");
+  if (error.code === "PLAN_UPGRADE_REQUIRED") console.error("Live streaming needs a Pro, Scale or Enterprise plan: https://videopiper.com/pricing/");
   if (error.status === 401) console.error("Check VIDEO_PIPER_API_KEY.");
   process.exit(1);
 });

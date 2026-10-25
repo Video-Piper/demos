@@ -53,7 +53,7 @@ app.get("/api/videos/:id/links", async (req, res) => {
 
   const now = Date.now() / 1000;
   const hit = linksCache.get(id);
-  if (hit && hit.playbackExpiresAt - now > 0.2 * hit.ttl && hit.captionsStatus !== "processing") return res.json(hit);
+  if (hit && hit.links.playbackExpiresAt - now > 0.2 * hit.ttl && hit.links.captionsStatus !== "processing") return res.json(hit.links);
 
   try {
     const response = await fetch(`${API_URL}/videos/${id}?linkTtl=86400`, { headers: { Authorization: `Bearer ${API_KEY}` } });
@@ -66,9 +66,8 @@ app.get("/api/videos/:id/links", async (req, res) => {
       captionsUrl: video.captions?.vttUrl,
       captionsStatus: video.captions?.status,
       playbackExpiresAt: video.playbackExpiresAt,
-      ttl: video.playbackExpiresAt - now,
     };
-    linksCache.set(id, links);
+    linksCache.set(id, { links, ttl: video.playbackExpiresAt - now });  // (ttl: when to refresh; the page only gets the links)
     res.json(links);
   } catch (error) {
     console.error("links failed:", error);

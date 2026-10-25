@@ -11,7 +11,7 @@
 | [`quickstart/python`](quickstart/python) | The same in Python 3.9+ with `requests` |
 | [`recorder-node`](recorder-node) | Record in the browser with `<video-piper-recorder>`, play it back with `<video-piper>`, behind a small Express server |
 | [`webhooks-node`](webhooks-node) | An Express receiver that verifies webhook signatures and handles `video.ready`, `video.failed` and `live.recording.ready` |
-| [`live-node`](live-node) | Create a live stream, get the OBS settings, and find the recording afterwards (Pro or Scale) |
+| [`live-node`](live-node) | Create a live stream, get the OBS settings, and find the recording afterwards (Pro, Scale or Enterprise) |
 | [`mcp`](mcp) | Connect Claude Desktop, Claude Code, Cursor or VS Code to your videos |
 
 Each folder is self-contained, with its own README and run instructions.
