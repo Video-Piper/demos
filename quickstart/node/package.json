@@ -1,0 +1,7 @@
+{
+  "name": "video-piper-quickstart-node",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": { "upload": "node upload.mjs" }
+}

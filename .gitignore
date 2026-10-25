@@ -1,0 +1,7 @@
+node_modules/
+.env
+.venv/
+__pycache__/
+downloads/
+# Videos the examples download
+*.mp4

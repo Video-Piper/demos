@@ -1,0 +1,31 @@
+name: Check
+
+# Syntax checks only: no secrets, no calls to the API.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - name: bash
+        run: bash -n quickstart/curl/upload.sh
+      - name: node
+        run: |
+          for f in quickstart/node/upload.mjs recorder-node/server.mjs webhooks-node/server.mjs webhooks-node/verify.mjs live-node/live.mjs; do
+            node --check "$f"
+          done
+      - name: python
+        run: python -m py_compile quickstart/python/upload.py

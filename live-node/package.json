@@ -1,0 +1,7 @@
+{
+  "name": "video-piper-live-demo",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node live.mjs" }
+}

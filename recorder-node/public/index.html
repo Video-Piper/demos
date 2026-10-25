@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Piper recorder demo</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    video-piper { width: 100%; margin-top: 1rem; }
+    #message { color: #5d6673; }
+  </style>
+  <!-- The two web components are served from the Video Piper site. -->
+  <script src="__SITE_URL__/recorder/recorder.js"></script>
+  <script src="__SITE_URL__/player/player.js"></script>
+</head>
+<body>
+  <h1>Record, then watch</h1>
+
+  <!-- token-url: the recorder POSTs to our server for a fresh one-video token each time someone starts.
+       wait: keep checking until the video is processed, then fire vp-ready. -->
+  <video-piper-recorder token-url="/api/upload-token" max-seconds="120" wait></video-piper-recorder>
+  <p id="message"></p>
+  <div id="result"></div>
+
+  <script>
+    const recorder = document.querySelector("video-piper-recorder");
+    const message = document.getElementById("message");
+
+    recorder.addEventListener("vp-uploaded", (e) => {
+      message.textContent = `Uploaded ${e.detail.videoId}. Processing...`;
+    });
+
+    recorder.addEventListener("vp-error", (e) => {
+      message.textContent = e.detail.message;
+    });
+
+    // The video is processed and plays: show it. The player asks our server for its links,
+    // so no API key or token ever reaches this page.
+    recorder.addEventListener("vp-ready", (e) => {
+      message.textContent = "Ready.";
+      const player = document.createElement("video-piper");
+      player.setAttribute("links-url", `/api/videos/${e.detail.videoId}/links`);
+      document.getElementById("result").replaceChildren(player);
+    });
+  </script>
+</body>
+</html>
