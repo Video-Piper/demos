@@ -8,7 +8,7 @@ Video Piper is an [MCP](https://modelcontextprotocol.io) server, so an AI assist
 | Transport | Streamable HTTP (stateless: POST only, JSON answers) |
 | Auth | `Authorization: Bearer <your API key>` |
 
-Use a test key (`vp_test_...`) while you try it out; it works on free test videos. Your key gives the assistant your account's access, so revoke it in Account > API keys if it leaks. Connectors added in Claude.ai's settings sign in with OAuth, which is not available yet; use one of the setups below. See the [MCP docs](https://videopiper.com/docs/#mcp) for the tool list.
+Use a test key (`vp_test_...`) while you try it out; it works on free test videos. Your key gives the assistant your account's access, so revoke it in Account > API keys if it leaks. Connectors added in Claude.ai's settings sign in with OAuth, which is not available yet; use one of the setups below. See the [MCP docs](https://videopiper.com/docs/ai-assistants/) for the tool list.
 
 Replace `vpk_...` with your key in each config below.
 

@@ -1,6 +1,6 @@
 # Webhooks (Node + Express)
 
-Receives Video Piper [webhooks](https://videopiper.com/docs/#webhooks), verifies their signature, and logs `video.ready`, `video.failed` and `live.recording.ready`. Use webhooks instead of polling to learn when a video is done.
+Receives Video Piper [webhooks](https://videopiper.com/docs/webhooks/), verifies their signature, and logs `video.ready`, `video.failed` and `live.recording.ready`. Use webhooks instead of polling to learn when a video is done.
 
 Video Piper signs every delivery following [Standard Webhooks](https://www.standardwebhooks.com). `verify.mjs` checks it by hand, with no library:
 

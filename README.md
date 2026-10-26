@@ -2,6 +2,10 @@
 
 [Video Piper](https://videopiper.com) is a video API: upload a file, optionally trim, redact, caption or combine it, then download or stream the result. These are small, runnable examples of using it.
 
+[![Recording in the browser with the recorder demo, then playing the processed video](media/recorder-demo.gif)](media/recorder-demo.mp4)
+
+*The [recorder demo](recorder-node): pick Camera, record, save, upload, and the processed video plays back. ([MP4](media/recorder-demo.mp4); the processing wait is trimmed.)*
+
 ## Demos
 
 | Folder | What it shows |

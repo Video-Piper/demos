@@ -1,6 +1,6 @@
 # Live streaming (Node)
 
-Creates a [live stream](https://videopiper.com/docs/#live-streaming), prints the watch link and the OBS server and stream key, waits for the broadcast to end, then prints the recording's `videoId`. Node 18+, no dependencies.
+Creates a [live stream](https://videopiper.com/docs/live-streaming/), prints the watch link and the OBS server and stream key, waits for the broadcast to end, then prints the recording's `videoId`. Node 18+, no dependencies.
 
 **Needs a Pro, Scale or Enterprise plan.** Free and Starter accounts get `403 PLAN_UPGRADE_REQUIRED`. A test key (`vp_test_...`) makes free test streams of up to 5 minutes.
 
