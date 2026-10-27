@@ -20,6 +20,20 @@
 
 Each folder is self-contained, with its own README and run instructions.
 
+## Web components in your own app
+
+The recorder demo loads the components as script tags from videopiper.com. In your own app you can install them from npm instead, as [`@videopiper/elements`](https://www.npmjs.com/package/@videopiper/elements):
+
+```sh
+npm install @videopiper/elements
+```
+
+```js
+import "@videopiper/elements/recorder";  // also /player, /editor and /thumbnail
+```
+
+Without a build step, the same scripts are on jsDelivr: `https://cdn.jsdelivr.net/npm/@videopiper/elements@0/dist/cdn/recorder.js`. See the [player](https://videopiper.com/docs/player/) and [recorder](https://videopiper.com/docs/recorder/) docs.
+
 ## Prerequisites
 
 An API key: sign in at <https://videopiper.com/app/>, then Account > API keys. Test keys (`vp_test_...`) work for every example here and make free, marked, 480p videos of at most 60 seconds, so you can try things without using your plan. Keep keys on your server and out of git.
